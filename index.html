@@ -1,17 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Başvuru Formu</title>
 </head>
+
 <body>
-   <form action="/basvuru" method="post">
 
-  <fieldset></fieldset>
+    <form action="/basvuru" method="post" enctype="multipart/form-data">
 
-  <button type="submit">Başvur</button>
+        <fieldset>
+            <legend>Kişisel bilgiler</legend>
 
-</form>
+            <label for="ad">Ad Soyad:</label>
+            <input type="text" id="ad" name="ad" autocomplete="name" required>
+
+            <br>
+
+            <fieldset>
+                <legend>Cinsiyet</legend>
+
+                <input type="radio" id="erkek" name="cinsiyet" value="erkek" required>
+                <label for="erkek">Erkek</label>
+
+                <input type="radio" id="kadin" name="cinsiyet" value="kadin">
+                <label for="kadin">Kadın</label>
+
+                <input type="radio" id="belirtmek-istemiyorum" name="cinsiyet" value="belirtmek-istemiyorum">
+                <label for="belirtmek-istemiyorum">Belirtmek istemiyorum</label>
+            </fieldset>
+
+            <br>
+
+            <label for="dogum-tarihi">Doğum Tarihi:</label>
+            <input type="date" id="dogum-tarihi" name="dogum-tarihi" required>
+
+            <br>
+
+            <label for="fotograf">Fotoğraf:</label>
+            <input type="file" id="fotograf" name="fotograf" accept=".png,.jpg,.jpeg" required>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>İletişim Bilgileri</legend>
+
+            <label for="tel-no">Telefon Numarası:</label>
+            <input
+                type="tel"
+                id="tel-no"
+                name="tel-no"
+                placeholder="0(555) 555 55 55"
+                autocomplete="tel"
+                required
+            >
+
+            <br>
+
+            <label for="eposta">Eposta Adresi:</label>
+            <input
+                type="email"
+                id="eposta"
+                name="eposta"
+                placeholder="[orn@gmail.com](mailto:orn@gmail.com)"
+                autocomplete="email"
+                required
+            >
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Adres Bilgileri</legend>
+
+            <label for="il">Yaşadığı İl:</label>
+            <input type="text" id="il" name="il" required>
+
+            <br>
+
+            <label for="ilce">Yaşadığı İlçe:</label>
+            <input type="text" id="ilce" name="ilce" required>
+
+            <br>
+
+            <label for="adress">Açık Adres:</label>
+            <br>
+            <textarea
+                id="adress"
+                name="adress"
+                rows="8"
+                cols="50"
+                placeholder="Adresinizi buraya yazabilirsiniz..."
+                required
+            ></textarea>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Fiziksel ve Sağlık Bilgileri</legend>
+
+            <label for="boy">Boy:</label>
+            <input type="number" id="boy" name="boy" min="50" max="200" required>
+
+            <br>
+
+            <label for="yas">Yaş:</label>
+            <input type="number" id="yas" name="yas" min="1" max="120" required>
+
+            <br>
+
+            <label for="blood-group">Kan Grubu:</label>
+            <select id="blood-group" name="blood-group" required>
+                <option value="">Kan grubunuzu seçiniz</option>
+                <option value="A+">A Rh+</option>
+                <option value="A-">A Rh-</option>
+                <option value="B+">B Rh+</option>
+                <option value="B-">B Rh-</option>
+                <option value="AB+">AB Rh+</option>
+                <option value="AB-">AB Rh-</option>
+                <option value="0+">0 Rh+</option>
+                <option value="0-">0 Rh-</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Resmi ve Yasal Durum</legend>
+
+            <label for="askerlik-durumu">Askerlik Durumu:</label>
+            <select id="askerlik-durumu" name="askerlik-durumu" required>
+                <option value="">Askerlik durumunuzu seçiniz</option>
+                <option value="yapildi">Yapıldı</option>
+                <option value="tecilli">Tecilli</option>
+                <option value="muaf">Muaf</option>
+                <option value="yapilmadi">Yapılmadı</option>
+            </select>
+
+            <br>
+
+            <label for="ehliyet-bilgisi">Ehliyet Bilgisi:</label>
+            <br>
+            <select id="ehliyet-bilgisi" name="ehliyet-bilgisi" multiple required>
+                <option value="A1">A1 - Motosiklet</option>
+                <option value="A2">A2 - Motosiklet</option>
+                <option value="A">A - Motosiklet</option>
+                <option value="B1">B1 - Dört tekerlekli motosiklet</option>
+                <option value="B">B - Otomobil ve kamyonet</option>
+                <option value="BE">BE - Römorklu B sınıfı araç</option>
+                <option value="C1">C1 - Hafif kamyon</option>
+                <option value="C1E">C1E - Römorklu hafif kamyon</option>
+                <option value="C">C - Kamyon ve çekici</option>
+                <option value="CE">CE - Römorklu kamyon ve çekici</option>
+                <option value="D1">D1 - Minibüs</option>
+                <option value="D1E">D1E - Römorklu minibüs</option>
+                <option value="D">D - Otobüs</option>
+                <option value="DE">DE - Römorklu otobüs</option>
+                <option value="F">F - Traktör</option>
+                <option value="G">G - İş makinesi</option>
+            </select>
+
+            <br>
+
+            <label for="gazi-sehit-yakini">Gazi / Şehit Yakını Durumu:</label>
+            <select id="gazi-sehit-yakini" name="gazi-sehit-yakini" required>
+                <option value="">Durumunuzu seçiniz</option>
+                <option value="gazi">Gazi</option>
+                <option value="sehit-yakini">Şehit yakını</option>
+                <option value="degil">Değil</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Sınav Bilgileri</legend>
+
+            <label for="city">Sınava girebileceği İl:</label>
+            <select id="city" name="city" required>
+                <option value="">İlinizi seçiniz</option>
+                <option value="adana">Adana</option>
+                <option value="adiyaman">Adıyaman</option>
+                <option value="afyonkarahisar">Afyonkarahisar</option>
+                <option value="agri">Ağrı</option>
+                <option value="amasya">Amasya</option>
+                <option value="ankara">Ankara</option>
+                <option value="antalya">Antalya</option>
+                <option value="artvin">Artvin</option>
+                <option value="aydin">Aydın</option>
+                <option value="balikesir">Balıkesir</option>
+                <option value="bilecik">Bilecik</option>
+                <option value="bingol">Bingöl</option>
+                <option value="bitlis">Bitlis</option>
+                <option value="bolu">Bolu</option>
+                <option value="burdur">Burdur</option>
+                <option value="bursa">Bursa</option>
+                <option value="canakkale">Çanakkale</option>
+                <option value="cankiri">Çankırı</option>
+                <option value="corum">Çorum</option>
+                <option value="denizli">Denizli</option>
+                <option value="diyarbakir">Diyarbakır</option>
+                <option value="duzce">Düzce</option>
+                <option value="edirne">Edirne</option>
+                <option value="elazig">Elazığ</option>
+                <option value="erzincan">Erzincan</option>
+                <option value="erzurum">Erzurum</option>
+                <option value="eskisehir">Eskişehir</option>
+                <option value="gaziantep">Gaziantep</option>
+                <option value="giresun">Giresun</option>
+                <option value="gumushane">Gümüşhane</option>
+                <option value="hakkari">Hakkâri</option>
+                <option value="hatay">Hatay</option>
+                <option value="igdir">Iğdır</option>
+                <option value="isparta">Isparta</option>
+                <option value="istanbul">İstanbul</option>
+                <option value="izmir">İzmir</option>
+                <option value="kahramanmaras">Kahramanmaraş</option>
+                <option value="karabuk">Karabük</option>
+                <option value="karaman">Karaman</option>
+                <option value="kars">Kars</option>
+                <option value="kastamonu">Kastamonu</option>
+                <option value="kayseri">Kayseri</option>
+                <option value="kilis">Kilis</option>
+                <option value="kirikkale">Kırıkkale</option>
+                <option value="kirklareli">Kırklareli</option>
+                <option value="kirsehir">Kırşehir</option>
+                <option value="kocaeli">Kocaeli</option>
+                <option value="konya">Konya</option>
+                <option value="kutahya">Kütahya</option>
+                <option value="malatya">Malatya</option>
+                <option value="manisa">Manisa</option>
+                <option value="mardin">Mardin</option>
+                <option value="mersin">Mersin</option>
+                <option value="mugla">Muğla</option>
+                <option value="mus">Muş</option>
+                <option value="nevsehir">Nevşehir</option>
+                <option value="nigde">Niğde</option>
+                <option value="ordu">Ordu</option>
+                <option value="osmaniye">Osmaniye</option>
+                <option value="rize">Rize</option>
+                <option value="sakarya">Sakarya</option>
+                <option value="samsun">Samsun</option>
+                <option value="siirt">Siirt</option>
+                <option value="sinop">Sinop</option>
+                <option value="sivas">Sivas</option>
+                <option value="sanliurfa">Şanlıurfa</option>
+                <option value="sirnak">Şırnak</option>
+                <option value="tekirdag">Tekirdağ</option>
+                <option value="tokat">Tokat</option>
+                <option value="trabzon">Trabzon</option>
+                <option value="tunceli">Tunceli</option>
+                <option value="usak">Uşak</option>
+                <option value="van">Van</option>
+                <option value="yalova">Yalova</option>
+                <option value="yozgat">Yozgat</option>
+                <option value="zonguldak">Zonguldak</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Acil Durum İletişim Bilgileri</legend>
+
+            <label for="acil-durum-kisisi">Acil Durum Kişisinin Adı Soyadı:</label>
+            <input
+                type="text"
+                id="acil-durum-kisisi"
+                name="acil-durum-kisisi"
+                required
+            >
+
+            <br>
+
+            <label for="acil-durum-kisisinin-numarası">Acil Durum Kişisinin Numarası:</label>
+            <input
+                type="tel"
+                id="acil-durum-kisisinin-numarası"
+                name="acil-durum-kisisinin-numarası"
+                placeholder="0(555) 555 55 55"
+                required
+            >
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Belgeler</legend>
+
+            <label for="belgeler">Diğer Belgeler:</label>
+            <input
+                type="file"
+                id="belgeler"
+                name="belgeler"
+                accept=".pdf"
+                required
+            >
+
+        </fieldset>
+
+        <fieldset>
+            <legend>KVKK Metni Onayı</legend>
+
+            <input
+                type="radio"
+                id="kvkk-kabul"
+                name="kvkk-onay"
+                value="kabul"
+                required
+            >
+            <label for="kvkk-kabul">KVKK metnini okudum ve kabul ediyorum.</label>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Uzaktan Eğitim Prosedürleri</legend>
+
+            <input
+                type="radio"
+                id="uzaktan-egitim-kabul"
+                name="uzaktan-egitim-onay"
+                value="kabul"
+                required
+            >
+            <label for="uzaktan-egitim-kabul">
+                Uzaktan eğitim prosedürlerini okudum ve kabul ediyorum.
+            </label>
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Başvur</button>
+
+    </form>
+
 </body>
 </html>
